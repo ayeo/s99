@@ -15,3 +15,4 @@ Note: this is just for learning purposes
 - [P06](src/main/scala/P06.scala): (*) Find out whether a list is a palindrome.
 - [P07](src/main/scala/P07.scala): (**) Flatten a nested list structure.
 - [P08](src/main/scala/P08.scala): (**) Eliminate consecutive duplicates of list elements.
+- [P09](src/main/scala/P09.scala): (**) Pack consecutive duplicates of list elements into sublists.
