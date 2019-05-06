@@ -1,4 +1,4 @@
-name := "s99sbt"
+name := "ayeo/s99"
 
 version := "0.1"
 

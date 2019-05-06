@@ -14,3 +14,4 @@ Note: this is just for learning purposes
 - [P05](src/P05.scala): (*) Reverse a list.
 - [P06](src/P06.scala): (*) Find out whether a list is a palindrome.
 - [P07](src/P07.scala): (**) Flatten a nested list structure.
+- [P08](src/P08.scala): (**) Eliminate consecutive duplicates of list elements.
