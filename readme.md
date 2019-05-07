@@ -17,3 +17,4 @@ Note: this is just for learning purposes
 - [P08](src/main/scala/P08.scala): (**) Eliminate consecutive duplicates of list elements.
 - [P09](src/main/scala/P09.scala): (**) Pack consecutive duplicates of list elements into sublists.
 - [P10](src/main/scala/P10.scala): (*) Run-length encoding of a list.
+- [P11](src/main/scala/P11.scala): (*) Modified run-length encoding.
