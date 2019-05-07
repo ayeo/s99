@@ -1,10 +1,10 @@
 //Pack consecutive duplicates of list elements into sublists.
 object P09 extends App {
-  def pack[A](list: List[A], sublist: List[A] = List()): List[Any] = {
+  def pack[A](list: List[A], sublist: List[A] = List()): List[List[A]] = {
     if (list.isEmpty) List() :+ sublist
-    else if (!sublist.isEmpty) {
+    else if (sublist.nonEmpty) {
       if (sublist.head.equals(list.head)) pack(list.tail, sublist :+ list.head)
-      else (sublist) :: pack(list.tail, List() :+ list.head)
+      else sublist :: pack(list.tail, List() :+ list.head)
     } else pack(list.tail, List() :+ list.head)
   }
 
