@@ -10,7 +10,7 @@ object P13 extends App {
   def encodeDirect(
     symbols: List[Symbol],
     current: List[Symbol] = List(),
-    result: List[(Int, Symbol)] = List()
+    result: List[(Int, Symbol)] = List() //fixme: unnecessary parameter
   ): List[(Int, Symbol)] = {
     if (symbols.isEmpty) result :+ (current.length, current.head)
     else if (current.isEmpty) encodeDirect(symbols.tail, List() :+ symbols.head, result)
