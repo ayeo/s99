@@ -10,7 +10,7 @@
 object P12 extends App {
   def expand(symbol: Symbol, counter: Int, result: List[Symbol] = List()): List[Symbol] = {
     if (counter.equals(0)) result
-    else expand(symbol, counter - 1, result :+ symbol) //assume list contains only exact same symbols
+    else expand(symbol, counter - 1, result :+ symbol)
   }
 
   def decode(list: List[(Int, Symbol)]): List[Symbol] = {
