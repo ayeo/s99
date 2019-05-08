@@ -10,7 +10,4 @@ object P14 extends App {
       else if (flag) list.head +: duplicate(list.tail)
       else list.head +: duplicate(list, !flag)
   }
-
-  val result = duplicate(List('a, 'b, 'c, 'c, 'd))
-  println(result)
 }
