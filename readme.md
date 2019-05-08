@@ -19,3 +19,4 @@ Note: this is just for learning purposes
 - [P10](src/main/scala/P10.scala): (*) Run-length encoding of a list.
 - [P11](src/main/scala/P11.scala): (*) Modified run-length encoding.
 - [P12](src/main/scala/P12.scala): (**) Decode a run-length encoded list.
+- [P13](src/main/scala/P13.scala): (**) Run-length encoding of a list (direct solution).
