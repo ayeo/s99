@@ -1,3 +1,5 @@
+package pl.ayeo.s99
+
 /**
   * P07 (**) Flatten a nested list structure.
   * Example:

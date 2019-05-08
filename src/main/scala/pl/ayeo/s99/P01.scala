@@ -1,3 +1,5 @@
+package pl.ayeo.s99
+
 import scala.annotation.tailrec
 
 /**

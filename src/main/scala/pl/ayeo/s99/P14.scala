@@ -1,3 +1,5 @@
+package pl.ayeo.s99
+
 /**
   * P14 (*) Duplicate the elements of a list.
   * Example:

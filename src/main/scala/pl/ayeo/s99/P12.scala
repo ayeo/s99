@@ -1,3 +1,5 @@
+package pl.ayeo.s99
+
 /**
   * (**) Decode a run-length encoded list.
   *
