@@ -21,3 +21,4 @@ Note: this is just for learning purposes
 - [P12](src/main/scala/P12.scala): (**) Decode a run-length encoded list.
 - [P13](src/main/scala/P13.scala): (**) Run-length encoding of a list (direct solution).
 - [P14](src/main/scala/P14.scala): (*) Duplicate the elements of a list.
+- [P15](src/main/scala/P15.scala): (**) Duplicate the elements of a list a given number of times.
