@@ -4,7 +4,19 @@ My solutions to [99 scala problems](http://aperiodic.net/phil/scala/s-99)
 
 Note: this is just for learning purposes
 
-## Solved problems
+## Summary
+
+|   |   |
+|---|---|
+| Working with lists | 23/28 |
+| Arithmetic  | 0/11 |
+| Logic and Codes | 0/5 |
+| Binary Trees | 0/16 |
+| Multiway Trees | 0/4 |
+| Graphs | 0/10 |
+| Miscellaneous Problems | 0/10 |
+
+## Solved problems list
 
 #### Working with lists
 - [P01](src/main/scala/pl/ayeo/s99/P01.scala): (*) Find the last element of a list.
