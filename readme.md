@@ -24,3 +24,4 @@ Note: this is just for learning purposes
 - [P15](src/main/scala/pl/ayeo/s99/P15.scala): (**) Duplicate the elements of a list a given number of times.
 - [P16](src/main/scala/pl/ayeo/s99/P16.scala): (**) Drop every Nth element from a list.
 - [P17](src/main/scala/pl/ayeo/s99/P17.scala): (*) Split a list into two parts.
+- [P18](src/main/scala/pl/ayeo/s99/P18.scala): (**) Extract a slice from a list.
