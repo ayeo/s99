@@ -29,3 +29,4 @@ Note: this is just for learning purposes
 - [P20](src/main/scala/pl/ayeo/s99/P20.scala): (*) Remove the Kth element from a list.
 - [P21](src/main/scala/pl/ayeo/s99/P21.scala): (*) Insert an element at a given position into a list.
 - [P22](src/main/scala/pl/ayeo/s99/P22.scala): (*) Create a list containing all integers within a given range.
+- [P23](src/main/scala/pl/ayeo/s99/P23.scala): (**) Extract a given number of randomly selected elements from a list.

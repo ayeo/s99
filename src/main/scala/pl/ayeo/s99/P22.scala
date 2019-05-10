@@ -15,7 +15,4 @@ object P22 extends App {
 
     helper(from, to - from)
   }
-
-
-  println(range(4, 9))
 }
