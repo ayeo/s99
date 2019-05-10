@@ -28,3 +28,4 @@ Note: this is just for learning purposes
 - [P19](src/main/scala/pl/ayeo/s99/P19.scala): (**) Rotate a list N places to the left.
 - [P20](src/main/scala/pl/ayeo/s99/P20.scala): (*) Remove the Kth element from a list.
 - [P21](src/main/scala/pl/ayeo/s99/P21.scala): (*) Insert an element at a given position into a list.
+- [P22](src/main/scala/pl/ayeo/s99/P22.scala): (*) Create a list containing all integers within a given range.
