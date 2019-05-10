@@ -6,15 +6,15 @@ Note: this is just for learning purposes
 
 ## Summary
 
-|   |   |
+|Section|Result|
 |---|---|
-| Working with lists | 23/28 |
-| Arithmetic  | 0/11 |
-| Logic and Codes | 0/5 |
-| Binary Trees | 0/16 |
-| Multiway Trees | 0/4 |
-| Graphs | 0/10 |
-| Miscellaneous Problems | 0/10 |
+|Working with lists|23/28|
+|Arithmetic|0/11|
+|Logic and Codes|0/5|
+|Binary Trees|0/16|
+|Multiway Trees|0/4|
+|Graphs|0/10|
+|Miscellaneous Problems|0/10|
 
 ## Solved problems list
 
