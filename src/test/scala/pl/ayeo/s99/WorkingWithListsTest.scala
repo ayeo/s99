@@ -1,5 +1,6 @@
+package pl.ayeo.s99
+
 import org.scalatest.{BeforeAndAfterAll, FunSuite}
-import pl.ayeo.s99.WorkingWithLists
 
 class WorkingWithListsTest extends FunSuite with BeforeAndAfterAll {
   private val processor: WorkingWithLists = WorkingWithLists()
@@ -40,5 +41,29 @@ class WorkingWithListsTest extends FunSuite with BeforeAndAfterAll {
 
   test("penultimate with two elements data") {
     assert(processor.penultimate(List(3, 5)) === 3)
+  }
+
+  //P08
+  test("compress with example data") {
+    assert(processor.compress(
+      List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) ===
+      List('a, 'b, 'c, 'a, 'd, 'e)
+    )
+  }
+
+  //P09
+  test("pack with example data") {
+    assert(processor.pack(
+      List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) ===
+      List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
+    )
+  }
+
+  //P10
+  test("encode with example data") {
+    assert(processor.encode(
+      List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) ===
+      List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
+    )
   }
 }
