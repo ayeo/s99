@@ -5,6 +5,8 @@ package pl.ayeo.s99
   * Example:
   * scala> lotto(6, 49)
   * res0: List[Int] = List(23, 1, 17, 33, 21, 37)
+  *
+  * Solution uses removeAt() and range() from previous tasks
   */
 object P24 extends App {
   implicit class Tuple(t: (List[Int], Int)) {
@@ -32,8 +34,6 @@ object P24 extends App {
   }
 
   def lotto(quantity: Int, maxNumber: Int): List[Int] = {
-    val allNumbers = range(1, maxNumber)
-
     def helper(quantity: Int, numbers: List[Int]): List[Int] = {
       if (quantity == 0 || numbers.isEmpty) Nil
       else if (numbers.length == 1) List(numbers.head)
@@ -43,6 +43,6 @@ object P24 extends App {
       }
     }
 
-    helper(quantity + 1, allNumbers)
+    helper(quantity + 1, range(1, maxNumber))
   }
 }
