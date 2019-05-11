@@ -1,7 +1,6 @@
 package pl.ayeo.s99
 
 import java.security.InvalidParameterException
-
 import scala.annotation.tailrec
 
 class WorkingWithLists {
@@ -10,12 +9,12 @@ class WorkingWithLists {
     * Example:
     * scala> last(List(1, 1, 2, 3, 5, 8))
     * res0: Int = 8
-    *
-    * todo: test empty list
     */
   @tailrec
+  @throws(classOf[IllegalArgumentException])
   final def last[A](data: List[A]): A = {
-    if (data.tail.isEmpty) data.head
+    if (data.isEmpty) throw new IllegalArgumentException
+    else if (data.tail.isEmpty) data.head
     else last(data.tail)
   }
 
@@ -27,12 +26,13 @@ class WorkingWithLists {
     *
     * Note:
     * This may use nth(list.length - 2, list) but this is before P03
-    *
-    * todo: test empty list
     */
   @tailrec
   final def penultimate[A](data: List[A], result: A = null): A = {
-    if (data.isEmpty || data.tail.isEmpty) result
+    if (data.isEmpty || data.tail.isEmpty) {
+      if (result == null) throw new InvalidParameterException()
+      else result
+    }
     else penultimate(data.tail, data.head)
   }
 
@@ -96,4 +96,8 @@ class WorkingWithLists {
     else if (list.head.isInstanceOf[List[A]]) flatten(list.head.asInstanceOf[List[A]]) ::: flatten(list.tail)
     else list.head +: flatten(list.tail)
   }
+}
+
+object WorkingWithLists {
+   def apply(): WorkingWithLists = new WorkingWithLists
 }

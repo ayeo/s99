@@ -19,7 +19,6 @@ This is for (my own) learning purposes only
 ## Solved problems list
 
 #### Working with lists
-- [P07](src/main/scala/pl/ayeo/s99/P07.scala): (**) Flatten a nested list structure.
 - [P08](src/main/scala/pl/ayeo/s99/P08.scala): (**) Eliminate consecutive duplicates of list elements.
 - [P09](src/main/scala/pl/ayeo/s99/P09.scala): (**) Pack consecutive duplicates of list elements into sublists.
 - [P10](src/main/scala/pl/ayeo/s99/P10.scala): (*) Run-length encoding of a list.
