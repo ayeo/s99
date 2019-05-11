@@ -8,7 +8,7 @@ Note: this is just for learning purposes
 
 |Section|Result|
 |---|---|
-|Working with lists|23/28|
+|Working with lists|24/28|
 |Arithmetic|0/11|
 |Logic and Codes|0/5|
 |Binary Trees|0/16|
@@ -42,3 +42,4 @@ Note: this is just for learning purposes
 - [P21](src/main/scala/pl/ayeo/s99/P21.scala): (*) Insert an element at a given position into a list.
 - [P22](src/main/scala/pl/ayeo/s99/P22.scala): (*) Create a list containing all integers within a given range.
 - [P23](src/main/scala/pl/ayeo/s99/P23.scala): (**) Extract a given number of randomly selected elements from a list.
+- [P24](src/main/scala/pl/ayeo/s99/P24.scala): (*) Lotto: Draw N different random numbers from the set 1..M.
