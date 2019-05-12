@@ -177,4 +177,9 @@ class WorkingWithListsTest extends FunSuite {
   test("lotto with example data") {
     assert(processor.lotto(6, 49).length === 6)
   }
+
+  //P25
+  test("randomPermute with example data") {
+    assert(processor.randomPermute(List('b, 'a, 'd, 'c, 'e, 'f)) === 6)
+  }
 }

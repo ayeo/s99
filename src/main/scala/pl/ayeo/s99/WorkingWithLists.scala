@@ -175,7 +175,6 @@ class WorkingWithLists {
     helper(pack(list))
   }
 
-
   /**
     * (**) Decode a run-length encoded list.
     *
@@ -208,10 +207,10 @@ class WorkingWithLists {
     * res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
     */
   def encodeDirect(
-                    symbols: List[Symbol],
-                    current: List[Symbol] = List(),
-                    result: List[(Int, Symbol)] = List() //fixme: unnecessary parameter
-                  ): List[(Int, Symbol)] = {
+    symbols: List[Symbol],
+    current: List[Symbol] = List(),
+    result: List[(Int, Symbol)] = List() //fixme: unnecessary parameter
+  ): List[(Int, Symbol)] = {
     if (symbols.isEmpty) result :+ (current.length, current.head)
     else if (current.isEmpty) encodeDirect(symbols.tail, List() :+ symbols.head, result)
     else if (symbols.head.equals(current.head)) encodeDirect(symbols.tail, current :+ symbols.head, result)
@@ -361,6 +360,7 @@ class WorkingWithLists {
     */
   def randomSelect(quantity: Int, symbols: List[Symbol]): List[Symbol] = {
     if (quantity <= 0) Nil
+    else if (symbols.tail.isEmpty) List(symbols.head)
     else {
       val (list, removed) = removeAt(Random.nextInt(symbols.length - 1), symbols)
       removed.asInstanceOf[Symbol] +: randomSelect(quantity - 1, list.asInstanceOf[List[Symbol]])
@@ -384,6 +384,18 @@ class WorkingWithLists {
     }
 
     helper(quantity, range(1, maxNumber))
+  }
+
+  /**
+    * P25 (*) Generate a random permutation of the elements of a list.
+    * Hint: Use the solution of problem P23.
+    * Example:
+    *
+    * scala> randomPermute(List('a, 'b, 'c, 'd, 'e, 'f))
+    * res0: List[Symbol] = List('b, 'a, 'd, 'c, 'e, 'f)
+    */
+  def randomPermute(elements: List[Symbol]): List[Symbol] = {
+    randomSelect(elements.length, elements)
   }
 }
 
