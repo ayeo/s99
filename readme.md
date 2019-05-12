@@ -8,7 +8,7 @@ This is for (my own) learning purposes only
 
 |Section|Result|
 |---|---|
-|[Working with lists](src/test/scala/pl/ayeo/s99/WorkingWithListsTest.scala)|25/28|
+|[Working with lists](src/main/scala/pl/ayeo/s99/WorkingWithLists.scala)|25/28|
 |[Arithmetic](src/test/scala/pl/ayeo/s99/ArithmeticTest.scala)|1/11|
 |Logic and Codes|0/5|
 |Binary Trees|0/16|
