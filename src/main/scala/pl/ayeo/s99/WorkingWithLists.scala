@@ -6,6 +6,7 @@ import scala.annotation.tailrec
 import scala.util.Random
 
 class WorkingWithLists {
+
   implicit class Tuple[A](t: (List[A], A)) {
     def +(p: (List[A], A)): (List[A], A) = (t._1 ::: p._1, if (p._2 == null) t._2 else p._2)
   }
@@ -207,10 +208,10 @@ class WorkingWithLists {
     * res0: List[(Int, Symbol)] = List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
     */
   def encodeDirect(
-    symbols: List[Symbol],
-    current: List[Symbol] = List(),
-    result: List[(Int, Symbol)] = List() //fixme: unnecessary parameter
-  ): List[(Int, Symbol)] = {
+                    symbols: List[Symbol],
+                    current: List[Symbol] = List(),
+                    result: List[(Int, Symbol)] = List() //fixme: unnecessary parameter
+                  ): List[(Int, Symbol)] = {
     if (symbols.isEmpty) result :+ (current.length, current.head)
     else if (current.isEmpty) encodeDirect(symbols.tail, List() :+ symbols.head, result)
     else if (symbols.head.equals(current.head)) encodeDirect(symbols.tail, current :+ symbols.head, result)
@@ -387,5 +388,5 @@ class WorkingWithLists {
 }
 
 object WorkingWithLists {
-   def apply(): WorkingWithLists = new WorkingWithLists
+  def apply(): WorkingWithLists = new WorkingWithLists
 }

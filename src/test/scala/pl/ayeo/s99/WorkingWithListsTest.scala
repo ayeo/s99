@@ -120,7 +120,7 @@ class WorkingWithListsTest extends FunSuite {
   test("split with example data") {
     assert(
       processor.split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) ===
-        List(List('a, 'b, 'c),List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) //fixme: should return tuple
+        List(List('a, 'b, 'c), List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) //fixme: should return tuple
     )
   }
 
