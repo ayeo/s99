@@ -116,4 +116,11 @@ class ArithmeticIntTest extends FunSuite {
       -7.totient
     }
   }
+
+  //P35
+  test("primeFactors") {
+    assert(315.primeFactors == List(3, 3, 5, 7))
+    assert(27.primeFactors == List(3, 3, 3))
+    assert(3432.primeFactors == List(2, 2, 2, 3, 11, 13))
+  }
 }

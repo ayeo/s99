@@ -56,6 +56,27 @@ class ArithmeticInt(private val i: Int) {
     if (i < 1) throw new IllegalArgumentException()
     else helper(i)
   }
+
+  /**
+    * (**) Determine the prime factors of a given positive integer.
+    * Construct a flat list containing the prime factors in ascending order.
+    * scala> 315.primeFactors
+    * res0: List[Int] = List(3, 3, 5, 7)
+    */
+  def primeFactors(): List[Int] = {
+    def nextPrime(a: Int): Int = {
+      if (a.isPrime) a
+      else nextPrime(a + 1)
+    }
+
+    def helper(rest: Int, divider: Int): List[Int] = {
+      if (rest.equals(1)) Nil
+      else if (rest % divider == 0) divider +: helper(rest/divider, divider)
+      else helper(rest, nextPrime(divider + 1))
+    }
+
+    helper(i, 2)
+  }
 }
 
 object ArithmeticInt {
