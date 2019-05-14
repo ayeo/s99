@@ -3,8 +3,6 @@ package pl.ayeo.s99
 import org.scalatest.FunSuite
 
 class ArithmeticTest extends FunSuite {
-  private val arithmetic: Arithmetic = new Arithmetic()
-
   //P31
   test("isPrime") {
     assert(0.isPrime == false)
@@ -46,36 +44,49 @@ class ArithmeticTest extends FunSuite {
     assert(1008.isPrime == false)
   }
 
+  //P32
   test("gcd") {
-    assert(arithmetic.gcd(1, 1) == 1)
+    assert(ArithmeticInt.gcd(1, 1) == 1)
 
-    assert(arithmetic.gcd(36, 63) == 9)
-    assert(arithmetic.gcd(63, 36) == 9)
+    assert(ArithmeticInt.gcd(36, 63) == 9)
+    assert(ArithmeticInt.gcd(63, 36) == 9)
 
-    assert(arithmetic.gcd(1989, 867) == 51)
-    assert(arithmetic.gcd(867, 1989) == 51)
+    assert(ArithmeticInt.gcd(1989, 867) == 51)
+    assert(ArithmeticInt.gcd(867, 1989) == 51)
 
-    assert(arithmetic.gcd(120, 670) == 10)
-    assert(arithmetic.gcd(670, 120) == 10)
+    assert(ArithmeticInt.gcd(120, 670) == 10)
+    assert(ArithmeticInt.gcd(670, 120) == 10)
 
-    assert(arithmetic.gcd(-1083, 399) == 57)
+    assert(ArithmeticInt.gcd(-1083, 399) == 57)
   }
 
   test("gcd with zero as first parameter") {
     intercept[IllegalArgumentException] {
-      assert(arithmetic.gcd(19, 0) == 1)
+      assert(ArithmeticInt.gcd(19, 0) == 1)
     }
   }
 
   test("gcd with zero as second parameter") {
     intercept[IllegalArgumentException] {
-      assert(arithmetic.gcd(0, 10) == 1)
+      assert(ArithmeticInt.gcd(0, 10) == 1)
     }
   }
 
   test("gcd with zero as both parameters") {
     intercept[IllegalArgumentException] {
-      assert(arithmetic.gcd(0, 0) == 1)
+      assert(ArithmeticInt.gcd(0, 0) == 1)
     }
   }
+
+  //P33
+  test("isCoprimeTo") {
+    assert(35.isCoprimeTo(64) == true)
+    assert(17.isCoprimeTo(52) == true)
+    assert(17.isCoprimeTo(34) == false)
+  }
+
+  test("isCoprimeTo zero") {
+    assert(1.isCoprimeTo(0) == false)
+  }
+
 }
