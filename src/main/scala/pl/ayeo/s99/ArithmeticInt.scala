@@ -1,7 +1,5 @@
 package pl.ayeo.s99
 
-import com.sun.javaws.exceptions.InvalidArgumentException
-
 class ArithmeticInt(private val i: Int) {
   /**
     * P31 (**) Determine whether a given integer number is prime.
