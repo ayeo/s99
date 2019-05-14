@@ -1,6 +1,13 @@
 package pl.ayeo.s99
 
 class ArithmeticInt(private val i: Int) {
+  /**
+    * P31 (**) Determine whether a given integer number is prime.
+    * scala> 7.isPrime
+    * res0: Boolean = true
+    *
+    * Note: this is implemented within ArithmeticInt class
+    */
   def isPrime: Boolean = {
     val sqrt = scala.math.sqrt(i)
 
@@ -15,6 +22,14 @@ class ArithmeticInt(private val i: Int) {
     else helper(5)
   }
 
+  /**
+    * P32 (**) Determine the greatest common divisor of two positive integer numbers.
+    * Use Euclid's algorithm.
+    * scala> gcd(36, 63)
+    * res0: Int = 9
+    *
+    * Note: this is implemented within ArithmeticInt class
+    */
   def isCoprimeTo(a: Int): Boolean = {
     try
       ArithmeticInt.gcd(i, a) == 1
@@ -26,6 +41,14 @@ class ArithmeticInt(private val i: Int) {
 
 
 object ArithmeticInt {
+  /**
+    * P33 (*) Determine whether two positive integer numbers are coprime.
+    * Two numbers are coprime if their greatest common divisor equals 1.
+    * scala> 35.isCoprimeTo(64)
+    * res0: Boolean = true
+    *
+    * Note: this is implemented within ArithmeticInt class
+    */
   def gcd(a: Int, b: Int): Int = {
     def helper(a: Int, b: Int): Int = {
       if (a.equals(b)) a

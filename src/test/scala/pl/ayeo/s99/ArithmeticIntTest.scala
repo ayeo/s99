@@ -2,7 +2,7 @@ package pl.ayeo.s99
 
 import org.scalatest.FunSuite
 
-class ArithmeticTest extends FunSuite {
+class ArithmeticIntTest extends FunSuite {
   //P31
   test("isPrime") {
     assert(0.isPrime == false)
