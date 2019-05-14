@@ -62,19 +62,19 @@ class ArithmeticIntTest extends FunSuite {
 
   test("gcd with zero as first parameter") {
     intercept[IllegalArgumentException] {
-      assert(ArithmeticInt.gcd(19, 0) == 1)
+      ArithmeticInt.gcd(19, 0)
     }
   }
 
   test("gcd with zero as second parameter") {
     intercept[IllegalArgumentException] {
-      assert(ArithmeticInt.gcd(0, 10) == 1)
+      ArithmeticInt.gcd(0, 10)
     }
   }
 
   test("gcd with zero as both parameters") {
     intercept[IllegalArgumentException] {
-      assert(ArithmeticInt.gcd(0, 0) == 1)
+      ArithmeticInt.gcd(0, 0)
     }
   }
 
@@ -89,4 +89,31 @@ class ArithmeticIntTest extends FunSuite {
     assert(1.isCoprimeTo(0) == false)
   }
 
+  //P34
+  test("totient with natural nubmers") {
+    assert(1.totient == 1)
+    assert(2.totient == 1)
+    assert(3.totient == 2)
+    assert(4.totient == 2)
+    assert(5.totient == 4)
+    assert(6.totient == 2)
+    assert(7.totient == 6)
+    assert(8.totient == 4)
+    assert(9.totient == 6)
+    assert(10.totient == 4)
+    assert(11.totient == 10)
+    assert(12.totient == 4)
+  }
+
+  test("totient with zero") {
+    intercept[IllegalArgumentException] {
+      0.totient
+    }
+  }
+
+  test("totient with negative number") {
+    intercept[IllegalArgumentException] {
+      -7.totient
+    }
+  }
 }

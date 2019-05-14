@@ -1,5 +1,7 @@
 package pl.ayeo.s99
 
+import com.sun.javaws.exceptions.InvalidArgumentException
+
 class ArithmeticInt(private val i: Int) {
   /**
     * P31 (**) Determine whether a given integer number is prime.
@@ -37,8 +39,24 @@ class ArithmeticInt(private val i: Int) {
       case e: IllegalArgumentException => false
     }
   }
-}
 
+  /**
+    * P34 (**) Calculate Euler's totient function phi(m).
+    * Euler's so-called totient function phi(m) is defined as the number of positive integers r (1 <= r <= m) that are coprime to m.
+    * scala> 10.totient
+    * res0: Int = 4
+    */
+  def totient(): Int = {
+    def helper(a: Int): Int = {
+      if (a.equals(1)) 1
+      else if (a.isCoprimeTo(i)) 1 + helper(a - 1)
+      else helper(a - 1)
+    }
+
+    if (i < 1) throw new IllegalArgumentException()
+    else helper(i)
+  }
+}
 
 object ArithmeticInt {
   /**
