@@ -6,7 +6,7 @@ class ArithmeticInt(private val i: Int) {
     * scala> 7.isPrime
     * res0: Boolean = true
     */
-  def isPrime: Boolean = {
+  final def isPrime: Boolean = {
     val sqrt = scala.math.sqrt(i)
 
     def helper(divider: Int): Boolean = {
@@ -26,7 +26,7 @@ class ArithmeticInt(private val i: Int) {
     * scala> gcd(36, 63)
     * res0: Int = 9
     */
-  def isCoprimeTo(a: Int): Boolean = {
+  final def isCoprimeTo(a: Int): Boolean = {
     try
       ArithmeticInt.gcd(i, a) == 1
     catch {
@@ -40,7 +40,7 @@ class ArithmeticInt(private val i: Int) {
     * scala> 10.totient
     * res0: Int = 4
     */
-  def totient(): Int = {
+  final def totient(): Int = {
     def helper(a: Int): Int = {
       if (a.equals(1)) 1
       else if (a.isCoprimeTo(i)) 1 + helper(a - 1)
@@ -57,7 +57,7 @@ class ArithmeticInt(private val i: Int) {
     * scala> 315.primeFactors
     * res0: List[Int] = List(3, 3, 5, 7)
     */
-  def primeFactors(): List[Int] = {
+  final def primeFactors(): List[Int] = {
     def nextPrime(a: Int): Int = {
       if (a.isPrime) a
       else nextPrime(a + 1)
@@ -70,6 +70,27 @@ class ArithmeticInt(private val i: Int) {
     }
 
     helper(i, 2)
+  }
+
+  /**
+    * P36 (**) Determine the prime factors of a given positive integer (2).
+    * Construct a list containing the prime factors and their multiplicity.
+    * scala> 315.primeFactorMultiplicity
+    * res0: List[(Int, Int)] = List((3,2), (5,1), (7,1))
+    * Alternately, use a Map for the result.
+    *
+    * scala> 315.primeFactorMultiplicity
+    * res0: Map[Int,Int] = Map(3 -> 2, 5 -> 1, 7 -> 1)
+    */
+  final def primeFactorMultiplicity(): List[(Int, Int)] = {
+    def helper(symbols: List[Int], current: List[Int] = List()): List[(Int, Int)] = {
+      if (symbols.isEmpty) List((current.head, current.length))
+      else if (current.isEmpty) helper(symbols.tail, List(symbols.head))
+      else if (symbols.head.equals(current.head)) helper(symbols.tail, current :+ symbols.head)
+      else List((current.head, current.length)) ::: helper(symbols.tail, List(symbols.head))
+    }
+
+    helper(i.primeFactors())
   }
 }
 

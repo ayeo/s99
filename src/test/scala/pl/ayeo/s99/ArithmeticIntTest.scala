@@ -123,4 +123,11 @@ class ArithmeticIntTest extends FunSuite {
     assert(27.primeFactors == List(3, 3, 3))
     assert(3432.primeFactors == List(2, 2, 2, 3, 11, 13))
   }
+
+  //P36
+  test("primeFactorsMultiplicity") {
+    assert(315.primeFactorMultiplicity == List((3,2), (5,1), (7,1)))
+    assert(27.primeFactorMultiplicity == List((3, 3)))
+    assert(3432.primeFactorMultiplicity == List((2, 3), (3, 1), (11, 1), (13, 1)))
+  }
 }
