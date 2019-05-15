@@ -5,8 +5,6 @@ class ArithmeticInt(private val i: Int) {
     * P31 (**) Determine whether a given integer number is prime.
     * scala> 7.isPrime
     * res0: Boolean = true
-    *
-    * Note: this is implemented within ArithmeticInt class
     */
   def isPrime: Boolean = {
     val sqrt = scala.math.sqrt(i)
@@ -27,8 +25,6 @@ class ArithmeticInt(private val i: Int) {
     * Use Euclid's algorithm.
     * scala> gcd(36, 63)
     * res0: Int = 9
-    *
-    * Note: this is implemented within ArithmeticInt class
     */
   def isCoprimeTo(a: Int): Boolean = {
     try
@@ -83,8 +79,6 @@ object ArithmeticInt {
     * Two numbers are coprime if their greatest common divisor equals 1.
     * scala> 35.isCoprimeTo(64)
     * res0: Boolean = true
-    *
-    * Note: this is implemented within ArithmeticInt class
     */
   def gcd(a: Int, b: Int): Int = {
     def helper(a: Int, b: Int): Int = {
