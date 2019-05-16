@@ -130,4 +130,20 @@ class ArithmeticIntTest extends FunSuite {
     assert(27.primeFactorMultiplicity == List((3, 3)))
     assert(3432.primeFactorMultiplicity == List((2, 3), (3, 1), (11, 1), (13, 1)))
   }
+
+  //P37
+  test("phi with natural nubmers") {
+    assert(1.phi == 1)
+    assert(2.phi == 1)
+    assert(3.phi == 2)
+    assert(4.phi == 2)
+    assert(5.phi == 4)
+    assert(6.phi == 2)
+    assert(7.phi == 6)
+    assert(8.phi == 4)
+    assert(9.phi == 6)
+    assert(10.phi == 4)
+    assert(11.phi == 10)
+    assert(12.phi == 4)
+  }
 }
