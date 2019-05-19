@@ -44,6 +44,11 @@ class ArithmeticIntTest extends FunSuite {
     assert(1008.isPrime == false)
   }
 
+  test("isPrime with negative") {
+    assert((-7).isPrime == false)
+    assert((-10).isPrime == false)
+  }
+
   //P32
   test("gcd") {
     assert(ArithmeticInt.gcd(1, 1) == 1)
@@ -153,5 +158,12 @@ class ArithmeticIntTest extends FunSuite {
     */
   test("compare phi with totient") {
     assert(10090.totient == 10090.phi)
+  }
+
+  //P39
+  test("range primes in range") {
+    assert(ArithmeticInt.listPrimesInRange(7 to 31) == List(7, 11, 13, 17, 19, 23, 29, 31))
+    assert(ArithmeticInt.listPrimesInRange(0 to 10) == List(2, 3, 5, 7))
+    assert(ArithmeticInt.listPrimesInRange(-10 to 10) == List(2, 3, 5, 7))
   }
 }

@@ -127,7 +127,7 @@ object ArithmeticInt {
     * scala> 35.isCoprimeTo(64)
     * res0: Boolean = true
     */
-  def gcd(a: Int, b: Int): Int = {
+  final def gcd(a: Int, b: Int): Int = {
     def helper(a: Int, b: Int): Int = {
       if (a.equals(b)) a
       else if (a > b) helper(a - b, b)
@@ -136,5 +136,17 @@ object ArithmeticInt {
 
     if (a.equals(0) || b.equals(0)) throw new IllegalArgumentException()
     else helper(Math.abs(a), Math.abs(b))
+  }
+
+  /**
+    * P39 (*) A list of prime numbers.
+    * Given a range of integers by its lower and upper limit, construct a list of all prime numbers in that range.
+    * scala> listPrimesinRange(7 to 31)
+    * res0: List[Int] = List(7, 11, 13, 17, 19, 23, 29, 31)
+    */
+  final def listPrimesInRange(range: Range): List[Int] = {
+    if (range.isEmpty) Nil
+    else if (range.head.isPrime) range.head +: listPrimesInRange(range.tail)
+    else listPrimesInRange(range.tail)
   }
 }
