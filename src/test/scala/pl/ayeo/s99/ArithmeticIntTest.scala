@@ -166,4 +166,28 @@ class ArithmeticIntTest extends FunSuite {
     assert(ArithmeticInt.listPrimesInRange(0 to 10) == List(2, 3, 5, 7))
     assert(ArithmeticInt.listPrimesInRange(-10 to 10) == List(2, 3, 5, 7))
   }
+
+  //P40
+  test("goldbach") {
+    assert(4.goldbach == (2, 2))
+
+    assert(6.goldbach == (3, 3))
+    assert(8.goldbach == (3, 5))
+    assert(10.goldbach == (3, 7))
+    assert(12.goldbach == (5, 7))
+    assert(14.goldbach == (3, 11))
+    assert(16.goldbach == (3, 13))
+    assert(18.goldbach == (5, 13))
+    assert(20.goldbach == (3, 17))
+    assert(22.goldbach == (3, 19))
+    assert(24.goldbach == (5, 19))
+    assert(26.goldbach == (3, 23))
+    assert(28.goldbach == (5, 23))
+    assert(30.goldbach == (7, 23))
+
+    assert(100.goldbach == (3, 97))
+    assert(1982.goldbach == (3, 1979))
+    assert(58922.goldbach == (13, 58909))
+    assert(180000.goldbach == (11,179989))
+  }
 }
