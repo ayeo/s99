@@ -107,4 +107,9 @@ class LogicAndCodesTest extends FunSuite {
     assert(false == (false xor false))
     assert(true == (false xor true))
   }
+
+  test("Test 3-bit gray code") {
+    val expected = List("000", "001", "011", "010", "110", "111", "101", "100")
+    assert(expected == processor.grey(3))
+  }
 }
