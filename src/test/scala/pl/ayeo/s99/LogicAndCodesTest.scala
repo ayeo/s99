@@ -58,4 +58,53 @@ class LogicAndCodesTest extends FunSuite {
     assert(false == processor.xor(false, false))
     assert(true ==  processor.xor(false, true))
   }
+
+  test("Test custom add operator") {
+    assert(true == (true and true))
+    assert(false == (true and false))
+    assert(false == (false and false))
+    assert(false == (false and true))
+  }
+
+  test("Test custom or operator") {
+    assert(true == (true or true))
+    assert(true == (true or false))
+    assert(false == (false or false))
+    assert(true == (false or true))
+  }
+
+  test("Test custom nand operator") {
+    assert(false == (true nand true))
+    assert(true == (true nand false))
+    assert(true == (false nand false))
+    assert(true == (false nand true))
+  }
+
+  test("Test custom nor operator") {
+    assert(false == (true nor true))
+    assert(false == (true nor false))
+    assert(true == (false nor false))
+    assert(false == (false nor true))
+  }
+
+  test("Test custom equ operator") {
+    assert(true == (true equ true))
+    assert(false == (true equ false))
+    assert(true == (false equ false))
+    assert(false == (false equ true))
+  }
+
+  test("Test custom impl operator") {
+    assert(true == (true impl true))
+    assert(false == (true impl false))
+    assert(true == (false impl false))
+    assert(true == (false impl true))
+  }
+
+  test("Test custom xor operator") {
+    assert(false == (true xor true))
+    assert(true == (true xor false))
+    assert(false == (false xor false))
+    assert(true == (false xor true))
+  }
 }

@@ -10,7 +10,7 @@ This is for (my own) learning purposes only
 |---|---|
 |[Working with lists](src/main/scala/pl/ayeo/s99/WorkingWithLists.scala)|25/28|
 |[Arithmetic](src/main/scala/pl/ayeo/s99/ArithmeticInt.scala)|10/11|
-|[Logic and Codes](src/main/scala/pl/ayeo/s99/LogicAndCodes.scala)|1/5|
+|[Logic and Codes](src/main/scala/pl/ayeo/s99/LogicAndCodes.scala)|2/5|
 |Binary Trees|0/16|
 |Multiway Trees|0/4|
 |Graphs|0/10|
