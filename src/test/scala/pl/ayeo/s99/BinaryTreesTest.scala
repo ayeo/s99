@@ -27,4 +27,11 @@ class BinaryTreesTest extends FunSuite {
     val result = Tree.cBalanced(7, 'x).toString()
     assert(expected == result)
   }
+
+  test("Is symmetric") {
+    assert(Node('a', Node('b'), Node('c')).isSymmetric)
+    assert(Node('a', Node('b', Node('x')), Node('c', End, Node('x'))).isSymmetric)
+    assert(!Node('a', Node('b', Node('x')), Node('b', Node('x'))).isSymmetric)
+    assert(!Node('x', Node('x')).isSymmetric)
+  }
 }
