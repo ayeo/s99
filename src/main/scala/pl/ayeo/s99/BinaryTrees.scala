@@ -27,7 +27,6 @@ case class Node[+T](value: T, left: Tree[T], right: Tree[T]) extends Tree[T] {
     if (ord.gt(newValue,value)) Node[A](value, left, right.addValue(newValue))
     else Node[A](value, left.addValue(newValue), right)
   }
-
 }
 
 case object End extends Tree[Nothing] {
@@ -101,7 +100,7 @@ object Tree {
   def fromList[T](values: List[T])(implicit ord: Ordering[T]): Tree[T] = {
     def injector(values: List[T], tree: Tree[T]): Tree[T] = {
       if (values.isEmpty) tree
-      else  injector(values.tail, tree.addValue(values.head))
+      else injector(values.tail, tree.addValue(values.head))
     }
     injector(values, End)
   }
