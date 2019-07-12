@@ -52,4 +52,10 @@ class BinaryTreesTest extends FunSuite {
     assert(Tree.fromList(List(5, 3, 18, 1, 4, 12, 21)).isSymmetric)
     assert(Tree.fromList(List(3, 2, 5, 7, 4)).isSymmetric == false)
   }
+
+  test("symmetricBalancedTrees") {
+    val result = Tree.symmetricBalancedTrees(5, 'x).toString()
+    val expected = "List(T('x T('x T('x . .) .) T('x . T('x . .))), T('x T('x . T('x . .)) T('x T('x . .) .)))"
+    assert(expected == result)
+  }
 }

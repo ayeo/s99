@@ -104,4 +104,13 @@ object Tree {
     }
     injector(values, End)
   }
+
+  /**
+    * P58 (**) Generate-and-test paradigm.
+    * Apply the generate-and-test paradigm to construct all symmetric, completely balanced binary trees with a given
+    * number of nodes.
+    * scala> Tree.symmetricBalancedTrees(5, "x")
+    * res0: List[Node[String]] = List(T(x T(x . T(x . .)) T(x T(x . .) .)), T(x T(x T(x . .) .) T(x . T(x . .))))
+    */
+  def symmetricBalancedTrees[A](nodes: Int, value: A): List[Tree[A]] = cBalanced(nodes, value).filter(_.isSymmetric)
 }
