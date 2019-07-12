@@ -16,7 +16,7 @@ class BinaryTreesTest extends FunSuite {
   }
 
   test("Completely balanced tree with 4 nodes") {
-    val expected = "List(T('x T('x . .) T('x . T('x . .))), T('x T('x . .) T('x T('x . .) .)), T('x T('x . T('x . .)) T('x . .)), T('x T('x T('x . .) .) T('x . .)))"
+    val expected = "List(T('x T('x . .) T('x . T('x . .))), T('x T('x . T('x . .)) T('x . .)), T('x T('x . .) T('x T('x . .) .)), T('x T('x T('x . .) .) T('x . .)))"
     val result = Tree.cBalanced(4, 'x).toString()
     assert(expected == result)
   }

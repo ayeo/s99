@@ -64,8 +64,7 @@ object Tree {
     case n if n % 2 == 0 => {
       val l1 = cBalanced((n - 1) / 2, value)
       val l2 = cBalanced((n - 1) / 2 + 1, value)
-      (for (l <- l1; r <- l2) yield Node(value, l, r)) ++
-      (for (l <- l2; r <- l1) yield Node(value, l, r))
+      (for (l <- l1; r <- l2) yield List(Node(value, l, r),  Node(value, r, l))).flatten
     }
   }
 
