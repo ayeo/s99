@@ -180,6 +180,6 @@ class WorkingWithListsTest extends FunSuite {
 
   //P25
   test("randomPermute with example data") {
-    assert(processor.randomPermute(List('b, 'a, 'd, 'c, 'e, 'f)) === 6)
+    assert(processor.randomPermute(List('b, 'a, 'd, 'c, 'e, 'f)).length === 6)
   }
 }

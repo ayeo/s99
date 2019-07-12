@@ -57,15 +57,10 @@ object Tree {
     */
   def cBalanced[T](nodes: Int, value: T): List[Tree[T]] = nodes match {
     case 0 => List(End)
-    case n if n % 2 == 1 => {
-      val l1 = cBalanced(n / 2, value)
-      for(r <- l1; l <- l1) yield Node(value, l , r)
-    }
-    case n if n % 2 == 0 => {
-      val l1 = cBalanced((n - 1) / 2, value)
-      val l2 = cBalanced((n - 1) / 2 + 1, value)
-      (for (l <- l1; r <- l2) yield List(Node(value, l, r),  Node(value, r, l))).flatten
-    }
+    case n if n % 2 == 1 => for (r <- cBalanced(n / 2, value); l <- cBalanced(n / 2, value))
+      yield Node(value, l , r)
+    case n if n % 2 == 0 => (for (l <- cBalanced((n - 1) / 2, value); r <- cBalanced((n - 1) / 2 + 1, value))
+      yield List(Node[T](value, l, r),  Node[T](value, r, l))).flatten
   }
 
   /**
