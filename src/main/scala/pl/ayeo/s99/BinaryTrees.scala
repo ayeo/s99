@@ -155,8 +155,8 @@ object Tree {
     *
     * Find out how many height-balanced trees exist for N = 15.
     */
-    //can not see the difference beteent this and p55. So only last task is solved below
-    def getSolutionsNumber(nodesNumber: Int): Int = cBalanced(nodesNumber, 'x).length
+  //can not see the difference beteent this and p55. So only last task is solved below
+  def getSolutionsNumber(nodesNumber: Int): Int = cBalanced(nodesNumber, 'x).length
 
 
   /**
@@ -164,7 +164,7 @@ object Tree {
     * A leaf is a node with no successors. Write a method leafCount to count them.
     * scala> Node('x', Node('x'), End).leafCount
     * res0: Int = 1
-   */
+    */
   def leafCount[T](tree: Tree[T]): Int = tree match {
     case End => 0
     case Node(_, End, End) => 1
@@ -183,7 +183,8 @@ object Tree {
     case Node(_, l, r) => leafList(l) ++ leafList(r)
   }
 
-  /** P62 (*) Collect the internal nodes of a binary tree in a list.
+  /**
+    * P62 (*) Collect the internal nodes of a binary tree in a list.
     * An internal node of a binary tree has either one or two non-empty successors. Write a method internalList to
     * collect them in a list.
     * scala> Node('a', Node('b'), Node('c', Node('d'), Node('e'))).internalList
@@ -193,5 +194,32 @@ object Tree {
     case End => List()
     case Node(_, End, End) => List()
     case Node(value, l, r) => List(value) ++ internalList(l) ++ internalList(r)
+  }
+
+  /**
+    * P63 (**) Construct a complete binary tree.
+    * A complete binary tree with height H is defined as follows: The levels 1,2,3,...,H-1 contain the maximum number
+    * of nodes (i.e 2(i-1) at the level i, note that we start counting the levels from 1 at the root). In level H, which
+    * may contain less than the maximum possible number of nodes, all the nodes are "left-adjusted". This means that in
+    * a levelorder tree traversal all internal nodes come first, the leaves come second, and empty successors (the Ends
+    * which are not really nodes!) come last.
+    *
+    * Particularly, complete binary trees are used as data structures (or addressing schemes) for heaps.
+    *
+    * We can assign an address number to each node in a complete binary tree by enumerating the nodes in levelorder,
+    * starting at the root with number 1. In doing so, we realize that for every node X with address A the following
+    * property holds: The address of X's left and right successors are 2*A and 2*A+1, respectively, supposed the
+    * successors do exist. This fact can be used to elegantly construct a complete binary tree structure. Write a method
+    * completeBinaryTree that takes as parameters the number of nodes and the value to put in each node.
+    * scala> Tree.completeBinaryTree(6, "x")
+    * res0: Node[String] = T(x T(x T(x . .) T(x . .)) T(x T(x . .) .))
+    */
+  def completeBinaryTree[T](nodes: Int, value: T): Tree[T] = nodes match {
+    case 0 =>
+      End
+    case n if n % 2 == 1 =>
+      Node(value, completeBinaryTree(n / 2, value), completeBinaryTree(n / 2, value))
+    case n =>
+      Node(value, completeBinaryTree((n - 1) / 2 + 1, value), completeBinaryTree((n - 1) / 2, value))
   }
 }

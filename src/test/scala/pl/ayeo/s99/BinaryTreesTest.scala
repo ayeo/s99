@@ -90,4 +90,10 @@ class BinaryTreesTest extends FunSuite {
     val result = Tree.internalList(Node('a', Node('b'), Node('c', Node('d'), Node('e'))))
     assert(expected == result)
   }
+
+  test("completeBinaryTree") {
+    val result = Tree.completeBinaryTree(6, 'x')
+    val expected = Node('x', Node('x', Node('x'), Node('x')), Node('x', Node('x')))
+    assert(expected == result)
+  }
 }
