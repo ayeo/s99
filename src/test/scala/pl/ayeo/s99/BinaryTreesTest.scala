@@ -58,4 +58,16 @@ class BinaryTreesTest extends FunSuite {
     val expected = "List(T('x T('x T('x . .) .) T('x . T('x . .))), T('x T('x . T('x . .)) T('x T('x . .) .)))"
     assert(expected == result)
   }
+
+  test("heightBalancedTrees") {
+    val result = Tree.hbalTrees(3, 'x)
+
+    val expected0 = Node('x, Node('x,  Node('x),  Node('x )), Node('x, Node('x), Node('x)))
+    assert(result(0) == expected0)
+
+    val expected1 =  Node('x, Node('x, Node('x), Node('x)), Node('x, Node('x)))
+    assert(result(1) == expected1)
+
+    //todo: add rest
+  }
 }

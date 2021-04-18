@@ -12,32 +12,41 @@ sealed abstract class Tree[+T] {
     * res0: Boolean = true
     */
   def isSymmetric: Boolean
+
   def isMirrorOf[A](tree: Tree[A]): Boolean
+
   def addValue[A >: T](newValue: A)(implicit ord: Ordering[A]): Tree[A]
 }
 
 case class Node[+T](value: T, left: Tree[T], right: Tree[T]) extends Tree[T] {
   override def toString = "T(" + value.toString + " " + left.toString + " " + right.toString + ")"
+
   override def isSymmetric: Boolean = right.isMirrorOf(left)
+
   override def isMirrorOf[A](tree: Tree[A]): Boolean = tree match {
     case x: Node[A] => left.isMirrorOf(x.right) && right.isMirrorOf(x.left)
     case _ => false // Node vs End comparison
   }
+
   override def addValue[A >: T](newValue: A)(implicit ord: Ordering[A]): Tree[A] = {
-    if (ord.gt(newValue,value)) Node[A](value, left, right.addValue(newValue))
+    if (ord.gt(newValue, value)) Node[A](value, left, right.addValue(newValue))
     else Node[A](value, left.addValue(newValue), right)
   }
 }
 
 case object End extends Tree[Nothing] {
   override def toString = "."
+
   override def isSymmetric: Boolean = true
+
   override def isMirrorOf[A](tree: Tree[A]): Boolean = tree == End
+
   override def addValue[A](value: A)(implicit ord: Ordering[A]): Tree[A] = Node[A](value)
 }
 
 object Node {
   def apply[T](value: T): Node[T] = Node(value, End, End)
+
   def apply[T](value: T, left: Tree[T]): Node[T] = Node(value, left, End)
 }
 
@@ -58,9 +67,9 @@ object Tree {
   def cBalanced[T](nodes: Int, value: T): List[Tree[T]] = nodes match {
     case 0 => List(End)
     case n if n % 2 == 1 => for (r <- cBalanced(n / 2, value); l <- cBalanced(n / 2, value))
-      yield Node(value, l , r)
+      yield Node(value, l, r)
     case n if n % 2 == 0 => (for (l <- cBalanced((n - 1) / 2, value); r <- cBalanced((n - 1) / 2 + 1, value))
-      yield List(Node[T](value, l, r),  Node[T](value, r, l))).flatten
+      yield List(Node[T](value, l, r), Node[T](value, r, l))).flatten
   }
 
   /**
@@ -96,6 +105,7 @@ object Tree {
       if (values.isEmpty) tree
       else injector(values.tail, tree.addValue(values.head))
     }
+
     injector(values, End)
   }
 
@@ -107,4 +117,23 @@ object Tree {
     * res0: List[Node[String]] = List(T(x T(x . T(x . .)) T(x T(x . .) .)), T(x T(x T(x . .) .) T(x . T(x . .))))
     */
   def symmetricBalancedTrees[A](nodes: Int, value: A): List[Tree[A]] = cBalanced(nodes, value).filter(_.isSymmetric)
+
+  /**
+    * P59 (**) Construct height-balanced binary trees.
+    * In a height-balanced binary tree, the following property holds for every node: The height of its left subtree and
+    * the height of its right subtree are almost equal, which means their difference is not greater than one.
+    * Write a method Tree.hbalTrees to construct height-balanced binary trees for a given height with a supplied value
+    * for the nodes. The function should generate all solutions.
+    *
+    * scala> Tree.hbalTrees(3, "x")
+    * res0: List[Node[String]] = List(T(x T(x T(x . .) T(x . .)) T(x T(x . .) T(x . .))), T(x T(x T(x . .) T(x . .)) T(x T(x . .) .)), ...
+    */
+  def hbalTrees[T](depth: Int, content: T): List[Tree[T]] = {
+    def helper(nodesNumber: Int, toRemove: Int): List[Tree[T]] = {
+      if (toRemove == 0) return List()
+      else cBalanced(nodesNumber - toRemove, content) ++ helper(nodesNumber, toRemove - 1)
+    }
+
+    helper(Math.pow(2, depth).toInt, Math.pow(2, depth - 1).toInt).reverse
+  }
 }
