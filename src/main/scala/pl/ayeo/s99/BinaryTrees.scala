@@ -124,7 +124,6 @@ object Tree {
     * the height of its right subtree are almost equal, which means their difference is not greater than one.
     * Write a method Tree.hbalTrees to construct height-balanced binary trees for a given height with a supplied value
     * for the nodes. The function should generate all solutions.
-    *
     * scala> Tree.hbalTrees(3, "x")
     * res0: List[Node[String]] = List(T(x T(x T(x . .) T(x . .)) T(x T(x . .) T(x . .))), T(x T(x T(x . .) T(x . .)) T(x T(x . .) .)), ...
     */
@@ -135,5 +134,64 @@ object Tree {
     }
 
     helper(Math.pow(2, depth).toInt, Math.pow(2, depth - 1).toInt).reverse
+  }
+
+
+  /**
+    * P60 (**) Construct height-balanced binary trees with a given number of nodes.
+    * Consider a height-balanced binary tree of height H. What is the maximum number of nodes it can contain? Clearly,
+    * MaxN = 2H - 1. However, what is the minimum number MinN? This question is more difficult. Try to find a recursive
+    * statement and turn it into a function minHbalNodes that takes a height and returns MinN.
+    * scala> minHbalNodes(3)
+    * res0: Int = 4
+    *
+    * On the other hand, we might ask: what is the maximum height H a height-balanced binary tree with N nodes can have? Write a maxHbalHeight function.
+    * scala> maxHbalHeight(4)
+    * res1: Int = 3
+    *
+    * Now, we can attack the main problem: construct all the height-balanced binary trees with a given nuber of nodes.
+    * scala> Tree.hbalTreesWithNodes(4, "x")
+    * res2: List[Node[String]] = List(T(x T(x T(x . .) .) T(x . .)), T(x T(x . T(x . .)) T(x . .)), ...
+    *
+    * Find out how many height-balanced trees exist for N = 15.
+    */
+    //can not see the difference beteent this and p55. So only last task is solved below
+    def getSolutionsNumber(nodesNumber: Int): Int = cBalanced(nodesNumber, 'x).length
+
+
+  /**
+    * P61 (*) Count the leaves of a binary tree.
+    * A leaf is a node with no successors. Write a method leafCount to count them.
+    * scala> Node('x', Node('x'), End).leafCount
+    * res0: Int = 1
+   */
+  def leafCount[T](tree: Tree[T]): Int = tree match {
+    case End => 0
+    case Node(_, End, End) => 1
+    case Node(_, l, r) => leafCount(l) + leafCount(r)
+  }
+
+  /**
+    * 61A (*) Collect the leaves of a binary tree in a list.
+    * A leaf is a node with no successors. Write a method leafList to collect them in a list.
+    * scala> Node('a', Node('b'), Node('c', Node('d'), Node('e'))).leafList
+    * res0: List[Char] = List(b, d, e)
+    */
+  def leafList[T](tree: Tree[T]): List[T] = tree match {
+    case End => List()
+    case Node(value, End, End) => List(value)
+    case Node(_, l, r) => leafList(l) ++ leafList(r)
+  }
+
+  /** P62 (*) Collect the internal nodes of a binary tree in a list.
+    * An internal node of a binary tree has either one or two non-empty successors. Write a method internalList to
+    * collect them in a list.
+    * scala> Node('a', Node('b'), Node('c', Node('d'), Node('e'))).internalList
+    * res0: List[Char] = List(a, c)
+    */
+  def internalList[T](tree: Tree[T]): List[T] = tree match {
+    case End => List()
+    case Node(_, End, End) => List()
+    case Node(value, l, r) => List(value) ++ internalList(l) ++ internalList(r)
   }
 }

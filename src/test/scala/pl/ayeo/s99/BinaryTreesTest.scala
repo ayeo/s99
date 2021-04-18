@@ -70,4 +70,24 @@ class BinaryTreesTest extends FunSuite {
 
     //todo: add rest
   }
+
+  test("howManySolutionsExistsForNNodes") {
+    assert(1 == Tree.getSolutionsNumber(15))
+  }
+
+  test("leafCount") {
+    assert(1 == Tree.leafCount(Node('x', Node('x'), End)))
+  }
+
+  test("leafList") {
+    val expected = List('b', 'd', 'e')
+    val result = Tree.leafList(Node('a', Node('b'), Node('c', Node('d'), Node('e'))))
+    assert(expected == result)
+  }
+
+  test("internalList") {
+    val expected = List('a', 'c')
+    val result = Tree.internalList(Node('a', Node('b'), Node('c', Node('d'), Node('e'))))
+    assert(expected == result)
+  }
 }
